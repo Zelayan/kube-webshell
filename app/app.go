@@ -2,9 +2,6 @@ package app
 
 import (
 	"encoding/json"
-	"net/http"
-	"path/filepath"
-
 	"github.com/igm/sockjs-go/v3/sockjs"
 	"k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -14,6 +11,8 @@ import (
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/client-go/tools/remotecommand"
 	"k8s.io/client-go/util/homedir"
+	"net/http"
+	"path/filepath"
 )
 
 type WebShell struct {

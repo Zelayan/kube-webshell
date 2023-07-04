@@ -11,7 +11,7 @@
 
 ### 启动后端进程
 ```shell
-# 默认读取 ~/.kube/confg 的 kubeconfig，可根据需要修改
+# 默认读取 ~/.kube/config 的 kubeconfig，可根据需要修改
 go run webshell.go 
 ```
 

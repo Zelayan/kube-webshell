@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -64,6 +65,15 @@ func main() {
 				Pod:       query.Pod,
 				Container: query.Container,
 			}, "/bin/bash"); err != nil {
+				if err = app.WebShellHandler(&app.WebShell{
+					Conn:      session,
+					SizeChan:  make(chan *remotecommand.TerminalSize),
+					Namespace: query.Namespace,
+					Pod:       query.Pod,
+					Container: query.Container,
+				}, "/bin/sh"); err != nil {
+					fmt.Print(err)
+				}
 			}
 		}).ServeHTTP(c.Writer, c.Request)
 	})
